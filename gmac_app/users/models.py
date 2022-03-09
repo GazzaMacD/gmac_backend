@@ -18,7 +18,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(_("email address"), unique=True)
     uuid = models.UUIDField(_("uuid"), default=uuid.uuid4, editable=False)
-    name = models.CharField(_("name"), blank=True, max_length=30)
+    first_name = models.CharField(_("given name"), blank=True, max_length=30)
+    last_name = models.CharField(_("family name"), blank=True, max_length=30)
+    name = models.CharField(_("full name"), blank=True, max_length=30)
     role = models.PositiveSmallIntegerField(
         _("role"), choices=Role.choices, default=Role.USER
     )

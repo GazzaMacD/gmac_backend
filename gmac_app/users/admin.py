@@ -28,6 +28,8 @@ class CustomUserAdmin(UserAdmin):
                     "email",
                     "password",
                     "name",
+                    "first_name",
+                    "last_name",
                 )
             },
         ),
@@ -58,6 +60,8 @@ class CustomUserAdmin(UserAdmin):
                 "email",
                 "password",
                 "name",
+                "first_name",
+                "last_name",
                 "role",
             )
             # add fields to Permissions fieldset
