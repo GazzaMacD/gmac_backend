@@ -69,10 +69,11 @@ local_settings.py
 
 .pytest_cache/
 
-# Images in project root
-/images/
-/original_images/
-/media/
+# Images in gmac_app 
+*/images/
+*/original_images/
+*/media/
+*/static/
 
 .envrc
 
@@ -80,4 +81,4 @@ local_settings.py
 /venv_gmac/
 /.project_files/
 settings/
-.vscode/
+/.vscode/

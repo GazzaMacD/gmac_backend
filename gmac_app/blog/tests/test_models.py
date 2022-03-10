@@ -8,7 +8,7 @@ from blog.models import BlogPage
 
 class BlogPageTests(WagtailPageTests):
     def test_can_create_blog_page_under_home(self):
-        self.assertCanCreate(HomePage, HomePage)
+        self.assertCanCreateAt(HomePage, HomePage)
 
     def test_can_create_blog_page(self):
         # Can create blog page with the required data
@@ -16,5 +16,10 @@ class BlogPageTests(WagtailPageTests):
         self.assertCanCreate(
             root_page,
             BlogPage,
-            nested_form_data({"title": "About us"}),
+            nested_form_data(
+                {
+                    "title": "About us",
+                    "read_length": 2,
+                }
+            ),
         )
