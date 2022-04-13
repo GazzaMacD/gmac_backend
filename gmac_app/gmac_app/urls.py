@@ -1,7 +1,10 @@
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
@@ -14,6 +17,10 @@ urlpatterns = [
     path("cms-admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
+    path("api/v2/auth/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path(
+        "api/v2/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"
+    ),
     path("api/v2/cms/", api_router.urls),
 ]
 
