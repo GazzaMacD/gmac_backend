@@ -17,10 +17,11 @@ urlpatterns = [
     path("cms-admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path("api/v2/auth/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path(
-        "api/v2/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"
-    ),
+    path("api/v2/auth/", include("dj_rest_auth.urls")),
+    # path("api/v2/auth/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    # path(
+    #    "api/v2/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"
+    # ),
     path("api/v2/cms/", api_router.urls),
 ]
 
